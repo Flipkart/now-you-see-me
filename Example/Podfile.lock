@@ -1,0 +1,39 @@
+PODS:
+  - CMPopTipView (2.3.2)
+  - FCChatHeads (1.0.3):
+    - CMPopTipView
+    - pop (~> 1.0)
+  - GDPerformanceView-Swift (2.1.0)
+  - NowYouSeeMe (1.0.0):
+    - FCChatHeads
+  - pop (1.0.12)
+  - SwiftLint (0.40.2)
+
+DEPENDENCIES:
+  - GDPerformanceView-Swift
+  - NowYouSeeMe (from `../`)
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - CMPopTipView
+    - FCChatHeads
+    - GDPerformanceView-Swift
+    - pop
+    - SwiftLint
+
+EXTERNAL SOURCES:
+  NowYouSeeMe:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CMPopTipView: 2d56ef53e8e739c4e63ad97a5a88b97712b46c7b
+  FCChatHeads: f853cbd583dde0d7d8549c41b97f6a2f64b33179
+  GDPerformanceView-Swift: 96165aec2d2b14f03a2303fbaae1f8f0f6d9ff1c
+  NowYouSeeMe: 5b40d4513ef6f6c49b8b7b72926c5a89e0604958
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  SwiftLint: 1216c910d27c2633ade33b4f071bb6b930982e62
+
+PODFILE CHECKSUM: f930033929233a7dfa2caf072aa35a0b523df376
+
+COCOAPODS: 1.9.3

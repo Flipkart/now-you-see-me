@@ -1,0 +1,10 @@
+author: Naveen Chaudhary
+author_url: https://github.com/naveen-c
+github_url: https://github.com/Flipkart/now-you-see-me
+root_url: https://flipkart.github.io/now-you-see-me/
+module: NowYouSeeMe
+output: docs
+theme: fullwidth
+min_acl: public
+podspec: NowYouSeeMe.podspec
+exclude: ["**/ViewTracker*.swift", "**/Debug*.swift"]

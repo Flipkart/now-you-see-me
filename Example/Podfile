@@ -1,0 +1,14 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'NowYouSeeMe-Demo' do
+  pod 'NowYouSeeMe', :path => '../'
+  pod 'SwiftLint'
+  pod 'GDPerformanceView-Swift'
+
+end
+
+post_install do |installer|
+    installer.pods_project.root_object.attributes["ORGANIZATIONNAME"] = "Flipkart"
+end

@@ -1,0 +1,218 @@
+whitelist_rules:
+  - deployment_target
+  - discouraged_direct_init
+  - duplicate_enum_cases
+  - dynamic_inline
+  - generic_type_name
+  - inert_defer
+  - is_disjoint
+  - large_tuple
+  - legacy_hashing
+  - nesting
+  - nsobject_prefer_isequal
+  - private_unit_test
+  - protocol_property_accessors_order
+  - reduce_boolean
+  - redundant_set_access_control
+  - unused_capture_list
+  - unused_control_flow_label
+  - valid_ibinspectable
+  - xctfail_message
+  - unneeded_parentheses_in_closure_argument
+  - for_where
+  - implicit_getter
+  - no_fallthrough_only
+  - shorthand_operator
+  - redundant_string_enum_value
+  - unneeded_break_in_switch
+  - unused_enumerated
+  - unused_optional_binding
+  - vertical_parameter_alignment
+  - type_name
+  - syntactic_sugar
+  - compiler_protocol_init
+  - closure_parameter_position
+  - control_statement
+  - class_delegate_protocol
+  - duplicate_imports
+  - legacy_constructor
+  - switch_case_alignment
+  - empty_count
+  - operator_whitespace
+  - redundant_objc_attribute
+  - force_unwrapping
+  - conditional_returns_on_newline
+  - explicit_type_interface
+  - force_cast
+
+  - cyclomatic_complexity
+  - file_length
+  - force_try
+  - function_body_length
+  - function_parameter_count
+  - type_body_length
+  - closure_body_length
+  
+  - trailing_whitespace
+  - trailing_newline
+  - leading_whitespace
+  - return_arrow_whitespace
+  - vertical_whitespace
+  - operator_usage_whitespace
+  - vertical_whitespace_closing_braces
+  - vertical_whitespace_opening_braces
+  - colon
+  - comma
+  - closing_brace
+  - redundant_void_return
+  - statement_position
+  - empty_parameters
+  - empty_parentheses_with_trailing_closure
+  - legacy_cggeometry_functions
+  - legacy_constant
+  - legacy_nsgeometry_functions
+  - no_space_in_method_call
+  - opening_brace
+  - mark
+  - redundant_discardable_let
+  - redundant_optional_initialization
+  - trailing_comma
+  - trailing_semicolon
+  - void_return
+  - closure_spacing
+  - literal_expression_end_indentation
+  - empty_enum_arguments
+  - unused_closure_parameter
+
+included:
+  - ../Source
+
+# disabled_rules:
+#   - discarded_notification_center_observer
+
+# Default Rules
+
+# block_based_kvo: error
+class_delegate_protocol: error
+closure_parameter_position: error
+compiler_protocol_init: error
+control_statement: error
+
+cyclomatic_complexity:
+  warning: 10
+  error: 76
+
+deployment_target: error
+discouraged_direct_init: error
+duplicate_enum_cases: error
+duplicate_imports:
+dynamic_inline: error
+
+file_length:
+  warning: 600
+  error: 1155
+
+for_where: error
+force_cast: error
+force_try: warning
+
+function_body_length:
+  warning: 50
+  error: 254
+
+function_parameter_count:
+  warning: 5
+  error: 8
+
+generic_type_name: error
+# identifier_name: error
+implicit_getter: error
+inert_defer: error
+is_disjoint: error
+large_tuple: error
+legacy_constructor: error
+legacy_hashing: error
+
+# line_length:
+#   error: 300
+
+# multiple_closures_with_trailing_closure: error
+nesting:
+no_fallthrough_only: error
+# notification_center_detachment: error
+nsobject_prefer_isequal: error
+operator_whitespace: error
+
+# private_over_fileprivate:
+#   severity: error
+
+private_unit_test: error
+protocol_property_accessors_order: error
+reduce_boolean: error
+redundant_objc_attribute: error
+redundant_set_access_control: error
+redundant_string_enum_value: error
+shorthand_operator: error
+
+# superfluous_disable_command: error
+
+switch_case_alignment:
+  severity: error
+
+syntactic_sugar: error
+# todo: warning
+
+type_body_length:
+  warning: 400
+  error: 704
+
+type_name: error
+unneeded_break_in_switch: error
+unused_capture_list: error
+unused_control_flow_label: error
+unused_enumerated: error
+
+unused_optional_binding:
+  severity: error
+
+unused_setter_value:
+  severity: error
+
+valid_ibinspectable: error
+vertical_parameter_alignment: error
+
+# weak_delegate: error
+xctfail_message: error
+
+#----------------- Added rules ---------------------
+
+# anyobject_protocol: error
+
+closure_body_length:
+  warning: 20
+  error: 91
+
+empty_count: error
+force_unwrapping: error
+
+# missing_docs:
+#   severity: error
+
+unneeded_parentheses_in_closure_argument: error
+
+# explicit_acl: error
+
+conditional_returns_on_newline:
+  severity: error
+
+explicit_type_interface:
+  severity: error
+
+custom_rules:
+  no_hard_coded_strings:
+    regex: '[a-zA-Z0-9][a-zA-Z0-9! ]+'
+    excluded: ".*(Model|Value).*\\.swift"
+    match_kinds:
+        - string
+    message: "Hard-coded string is never a good practice"
+    severity: warning

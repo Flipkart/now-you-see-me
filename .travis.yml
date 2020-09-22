@@ -1,0 +1,20 @@
+language: swift
+osx_image: xcode12
+xcode_workspace: NowYouSeeMe.xcworkspace
+xcode_scheme: NowYouSeeMeTests
+xcode_destination: platform=iOS Simulator,OS=14.0,name=iPhone 11 Pro
+before_install:
+  - cd Example
+  - pod install
+after_success:
+  - git clean -xdf
+  - cd ..
+  - gem install jazzy
+  - jazzy
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  local-dir: docs
+  on:
+  branch: master
