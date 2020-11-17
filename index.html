@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NowYouSeeMe  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="NowYouSeeMe  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          NowYouSeeMe 1.0.1 Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/Flipkart/now-you-see-me">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fflipkart.github.io%2Fnow-you-see-me%2Fdocsets%2FNowYouSeeMe.xml">
+            <img class="header-icon" src="img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">NowYouSeeMe Reference</a>
+      <img class="carat" src="img/carat.png" />
+      NowYouSeeMe  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/NowYou.html">NowYou</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ScrollIdleCondition.html">ScrollIdleCondition</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/TrackingCondition.html">TrackingCondition</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ViewabilityCondition.html">ViewabilityCondition</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/ScrollState.html">ScrollState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/UIScrollView.html">UIScrollView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/UIView.html">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ViewCondition.html">ViewCondition</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ViewabilityListener.html">ViewabilityListener</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            
+            <h1 align="center">
+ <img src="https://raw.githubusercontent.com/Flipkart/now-you-see-me/master/NowYouSeeMe.png" width="200" alt="Logo"/> 
+ <br/>
+ <br/>
+ Now You See Me
+</h1>
+
+<p><a href="https://travis-ci.org/github/Flipkart/now-you-see-me"><img src="https://api.travis-ci.org/Flipkart/now-you-see-me.svg?branch=master" alt="Build Status"></a>
+<a href="http://cocoapods.org/pods/NowYouSeeMe"><img src="https://img.shields.io/cocoapods/v/NowYouSeeMe?color=blue" alt="Version"></a>
+<a href="http://cocoapods.org/pods/NowYouSeeMe"><img src="https://img.shields.io/cocoapods/p/NowYouSeeMe" alt="Platform"></a>
+<a href="https://developer.apple.com/swift/"><img src="https://img.shields.io/badge/swift-5-orange" alt="Swift"></a>
+<a href="https://flipkart.github.io/now-you-see-me/index.html"><img src="https://raw.githubusercontent.com/Flipkart/now-you-see-me/gh-pages/badge.svg" alt="Docs"></a>
+<a href="http://cocoapods.org/pods/NowYouSeeMe"><img src="https://img.shields.io/cocoapods/l/NowYouSeeMe?color=purple" alt="License"></a>
+<br/>
+<br/>
+NowYouSeeMe is a view tracking framework written in Swift that can be attached to an instance of UIView or any of its subclasses with a single API written on UIView. Views can also add custom viewability conditions and listeners.</p>
+<h2 id='ideology' class='heading'>Ideology:</h2>
+
+<ul>
+<li>60 fps (all calculations on background thread)</li>
+<li>No trackable wrappers on views</li>
+<li>Viewability rules injected by view</li>
+<li>Viewability callbacks back to the view (on main thread)</li>
+<li>Simple and easy to use APIs</li>
+</ul>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p>To enable the framework you need to call the following method before the UI is created:</p>
+<pre class="highlight swift"><code><span class="kt">NowYou</span><span class="o">.</span><span class="nf">seeMe</span><span class="p">()</span>  <span class="c1">// didFinishLaunchingWithOptions is a good place to initialise the framework</span>
+</code></pre>
+<h3 id='view' class='heading'>View</h3>
+
+<p>Gone are the days, when you had to create custom view subclasses for tracking viewability.  </p>
+
+<p>Tracking a view is now as simple as:</p>
+<pre class="highlight swift"><code><span class="n">view</span><span class="o">.</span><span class="nf">trackView</span><span class="p">()</span>  <span class="c1">// can be UIView or any of its subclasses</span>
+</code></pre>
+
+<p>You will also need to call trackView on the parent UIViewController&rsquo;s view for managing viewcontroller lifecycle based viewability callbacks</p>
+<pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">trackView</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='scrollview' class='heading'>ScrollView</h3>
+
+<p>In case you want to track viewability of <i>children of scrollView, you must also call <code>trackView()</code> on scrollView</i>.</p>
+<pre class="highlight swift"><code><span class="n">scrollView</span><span class="o">.</span><span class="nf">trackView</span><span class="p">()</span>  <span class="c1">// can be UIScrollView, UITableView, UICollectionView, or any other scrollable view</span>
+</code></pre>
+
+<p>This enables tracking on <code>contentOffset</code> of scrollView, to calculate correct visibility of children.</p>
+<h3 id='recyclable-view' class='heading'>Recyclable View</h3>
+
+<p>In case you want to track viewability of <i>children of a recyclable view, you must also call <code>trackView()</code> on the recyclable view</i>.</p>
+<pre class="highlight swift"><code><span class="n">cell</span><span class="o">.</span><span class="nf">trackView</span><span class="p">()</span>  <span class="c1">// can be UITableViewCell, UICollectionViewCell, or any other recyclable view</span>
+</code></pre>
+<h2 id='listener' class='heading'>Listener</h2>
+
+<p>No point tracking view if you can can&rsquo;t listen to the changes. </p>
+
+<p>You can provide a <code><a href="Protocols/ViewabilityListener.html">ViewabilityListener</a></code> for the view in <code>trackView()</code> call to listen to <code>viewStarted(:)</code> and <code>viewEnded(:)</code> events.  </p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CustomListener</span><span class="p">:</span> <span class="kt">ViewabilityListener</span> <span class="p">{</span>
+    <span class="c1">// view has entered the view port (visibility percentage &gt; 0)</span>
+    <span class="kd">func</span> <span class="nf">viewStarted</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">view</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">green</span>
+    <span class="p">}</span>
+
+    <span class="c1">// complete view has exited the viewport (visibility percentage == 0)</span>
+    <span class="kd">func</span> <span class="nf">viewEnded</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">view</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">red</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">view</span><span class="o">.</span><span class="nf">trackView</span><span class="p">(</span><span class="kt">CustomListener</span><span class="p">())</span>  <span class="c1">// listener attached to the view</span>
+</code></pre>
+<h2 id='conditions' class='heading'>Conditions</h2>
+
+<p>Want more control over viewability callbacks?  </p>
+
+<p>You can provide your custom <code><a href="Protocols/ViewCondition.html">ViewCondition</a></code>&lsquo;s for the view in <code>trackView()</code> call.  </p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CustomCondition</span><span class="p">:</span> <span class="kt">ViewCondition</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">evaluate</span><span class="p">(</span><span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">ScrollState</span><span class="p">,</span> <span class="nv">viewPercentage</span><span class="p">:</span> <span class="kt">Float</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// custom evaluation here based on scroll state and visible view percentage</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">view</span><span class="o">.</span><span class="nf">trackView</span><span class="p">(</span><span class="nv">conditions</span><span class="p">:</span> <span class="p">[</span><span class="kt">CustomCondition</span><span class="p">()])</span>  <span class="c1">// view condition added to the view</span>
+</code></pre>
+<h3 id='default-conditions' class='heading'>Default Conditions</h3>
+
+<p>A few default view conditions are exposed to save you from calculations.</p>
+
+<ul>
+<li><a href="https://flipkart.github.io/now-you-see-me/Classes/ScrollIdleCondition.html"><code><a href="Classes/ScrollIdleCondition.html">ScrollIdleCondition</a></code></a>.</li>
+<li><a href="https://flipkart.github.io/now-you-see-me/Classes/ViewabilityCondition.html"><code><a href="Classes/ViewabilityCondition.html">ViewabilityCondition</a></code></a>.</li>
+<li><a href="https://flipkart.github.io/now-you-see-me/Classes/TrackingCondition.html"><code><a href="Classes/TrackingCondition.html">TrackingCondition</a></code></a>.</li>
+</ul>
+<h2 id='api-documentation' class='heading'>API Documentation</h2>
+
+<p>The full documentation for NowYouSeeMe is <a href="https://flipkart.github.io/now-you-see-me/index.html">available here</a>.</p>
+
+<p>More information can be found in the <a href="https://github.com/Flipkart/now-you-see-me/wiki">Wiki section</a>.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>To integrate NowYouSeeMe into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'NowYouSeeMe'</span>
+</code></pre>
+
+<p>Then, run the following command:</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>pod install
+</code></pre>
+<h2 id='dependencies' class='heading'>Dependencies</h2>
+
+<ul>
+<li><a href="https://github.com/flipkart-incubator/fk-ios-chatheads">FCChatHeads</a></li>
+</ul>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 10.0+</li>
+<li>Swift 5</li>
+</ul>
+
+<hr>
+
+<p><a href="http://clayallsopp.github.io/readme-score/?url=flipkart/now-you-see-me"><img src="http://readme-score-api.herokuapp.com/score.svg?url=flipkart/now-you-see-me" alt="Readme Score"></a></p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://github.com/naveen-c" target="_blank" rel="external">Naveen Chaudhary</a>. All rights reserved. (Last updated: 2020-11-17)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
