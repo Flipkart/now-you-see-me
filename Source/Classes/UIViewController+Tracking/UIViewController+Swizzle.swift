@@ -52,7 +52,7 @@ extension UIViewController {
             visibleViewController.view.viewTracker?.viewWillHide()
         }
 
-        self.swizzled_present(viewController, animated: true, completion: nil)
+        self.swizzled_present(viewController, animated: animated, completion: completion)
     }
 
     /**
