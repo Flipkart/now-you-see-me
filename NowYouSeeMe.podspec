@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'NowYouSeeMe'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'View tracking framework for iOS'
 
   s.description      = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5'
   
   s.source_files = 'Source/Classes/**/*.{h,m,swift}'
-  s.resources = 'Source/**/*.{xcassets,xib,storyboard}'
+  s.resource_bundles =  { 'NowYouSeeMe' => ['Source/**/*.{xcassets,xib,storyboard}'] }
   
   s.dependency 'FCChatHeads'
   

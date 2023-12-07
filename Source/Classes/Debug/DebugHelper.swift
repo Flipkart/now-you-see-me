@@ -88,27 +88,33 @@ internal class DebugHelper: NSObject {
         isShown = true
 
         // create chat head image
-        let bundle: Bundle = Bundle(for: Self.self)
-        let imageView: UIImageView = UIImageView(image: UIImage(named: "Logo", in: bundle, compatibleWith: nil))
-        imageView.layer.cornerRadius = 20
-        imageView.clipsToBounds = true
+        let bundle: Bundle = Bundle(for: DebugView.self)
+        if let NYSMBundleUrl: URL = bundle.url(forResource: "NowYouSeeMe", withExtension: "bundle"),
+           let NYSMBundle: Bundle = Bundle(url: NYSMBundleUrl) {
+            let imageView: UIImageView = UIImageView(image: UIImage(named: "Logo", in: NYSMBundle, compatibleWith: nil))
+            imageView.layer.cornerRadius = 20
+            imageView.clipsToBounds = true
 
-        // create and display chat head with debug options
-        let chatHead: FCChatHeadsController = FCChatHeadsController()
-        chatHead.datasource = self
-        chatHead.delegate = self
-        chatHead.presentChatHead(with: imageView, chatID: "NowYouSeeMe.debugView")
-        self.chatHead = chatHead
+            // create and display chat head with debug options
+            let chatHead: FCChatHeadsController = FCChatHeadsController()
+            chatHead.datasource = self
+            chatHead.delegate = self
+            chatHead.presentChatHead(with: imageView, chatID: "NowYouSeeMe.debugView")
+            self.chatHead = chatHead
+        }
     }
 }
 
 extension DebugHelper: FCChatHeadsControllerDatasource {
     internal func chatHeadsController(_ chatHeadsController: FCChatHeadsController!, viewForPopoverForChatHeadWithChatID chatID: String!) -> UIView! {
         // provide view for debug options
-        let bundle: Bundle = Bundle(for: Self.self)
-        let myView: DebugView? = bundle.loadNibNamed("DebugView", owner: nil, options: nil)?.first as? DebugView
-
-        return myView ?? UIView()
+        let bundle: Bundle = Bundle(for: DebugView.self)
+        if let NYSMBundleUrl: URL = bundle.url(forResource: "NowYouSeeMe", withExtension: "bundle"),
+           let NYSMBundle: Bundle = Bundle(url: NYSMBundleUrl),
+           let myView: DebugView = NYSMBundle.loadNibNamed("DebugView", owner: nil, options: nil)?.first as? DebugView {
+            return myView
+        }
+        return UIView()
     }
 }
 
