@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'NowYouSeeMe'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'View tracking framework for iOS'
 
   s.description      = <<-DESC
