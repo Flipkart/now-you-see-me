@@ -91,10 +91,10 @@ public class ViewTracker: NSObject {
      - Parameters:
         - view: the view being tracked
     */
-    internal init(_ view: UIView) {
+    internal init(_ view: UIView,_ isNewArchEnabled: Bool = false) {
         self.view = view
         super.init()
-
+        self.isNewArchEnabled = isNewArchEnabled
         // add observers for app state
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)

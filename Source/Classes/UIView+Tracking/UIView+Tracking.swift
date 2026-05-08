@@ -32,7 +32,7 @@ extension UIView {
         - listener: The listener for change in viewability state of the view
         - conditions: Additional viewability conditions attached to the view
      */
-    public func trackView(_ listener: ViewabilityListener? = nil, conditions: [ViewCondition] = [], isNewArchEnabled: Bool? = nil) {
+    public func trackView(_ listener: ViewabilityListener? = nil, conditions: [ViewCondition] = [], isNewArchEnabled: Bool = false) {
         // do not track if not enabled
         guard NowYou.watching else {
             return
@@ -42,6 +42,7 @@ extension UIView {
             // update conditions and listener if tracker already present
             viewTracker.setConditions(conditions)
             viewTracker.setListener(listener)
+            viewTracker.isNewArchEnabled = isNewArchEnabled
             return
         }
 
@@ -50,22 +51,19 @@ extension UIView {
         if let scrollView: UIScrollView = self as? UIScrollView {
             // special handling for scrollviews
             #if DEBUG
-            tracker = DebugScrollTracker(scrollView)
+            tracker = DebugScrollTracker(scrollView, isNewArchEnabled)
             #else
-            tracker = ScrollTracker(scrollView)
+            tracker = ScrollTracker(scrollView, isNewArchEnabled)
             #endif
         } else {
             #if DEBUG
-            tracker = DebugViewTracker(self)
+            tracker = DebugViewTracker(self, isNewArchEnabled)
             #else
-            tracker = ViewTracker(self)
+            tracker = ViewTracker(self, isNewArchEnabled)
             #endif
         }
         tracker.setConditions(conditions)
         tracker.setListener(listener)
-        print("In the trackView ",isNewArchEnabled)
-
-        tracker.isNewArchEnabled = isNewArchEnabled ?? false
 
         // add tracker to view's associated objects
         objc_setAssociatedObject(self, &AssociatedKeys.viewTracker, tracker, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
