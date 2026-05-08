@@ -111,8 +111,7 @@ extension ViewTracker {
             // return if position has not changed
             return
         }
-
-        // TODO: Keep it behind a new arch flag
+        print("HOLA pere ",self.isNewArchEnabled)
         /*
         In Interop: Fabric’s C++ engine (Yoga) calculates the layout entirely off-screen. 
         It determines the final, perfect size and sends it to the view exactly once. 
@@ -121,11 +120,12 @@ extension ViewTracker {
         If the view is just moving, Fabric updates the position or frame. 
         Since the bounds haven't changed, iOS suppresses the KVO notification for bounds to save CPU cycles.
         */
-            
-        // if keyPath == "bounds", let oldValue: CGRect = change?[.oldKey] as? CGRect, let newValue: CGRect = change?[.newKey] as? CGRect, oldValue.size == newValue.size {
-        //     // return if bounds size has not changed
-        //     return
-        // }
+        if (!self.isNewArchEnabled) {
+            // if keyPath == "bounds", let oldValue: CGRect = change?[.oldKey] as? CGRect, let newValue: CGRect = change?[.newKey] as? CGRect, oldValue.size == newValue.size {
+            //     // return if bounds size has not changed
+            //     return
+            // }
+        }
 
         // reset frame if there is a change in layer's position or bounds
         QueueManager.dispatchOnSerialQueue { [weak self] in

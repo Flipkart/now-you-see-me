@@ -32,7 +32,7 @@ extension UIView {
         - listener: The listener for change in viewability state of the view
         - conditions: Additional viewability conditions attached to the view
      */
-    public func trackView(_ listener: ViewabilityListener? = nil, conditions: [ViewCondition] = []) {
+    public func trackView(_ listener: ViewabilityListener? = nil, conditions: [ViewCondition] = [], isNewArchEnabled: Bool? = nil) {
         // do not track if not enabled
         guard NowYou.watching else {
             return
@@ -63,6 +63,9 @@ extension UIView {
         }
         tracker.setConditions(conditions)
         tracker.setListener(listener)
+        print("In the trackView ",isNewArchEnabled)
+
+        tracker.isNewArchEnabled = isNewArchEnabled ?? false
 
         // add tracker to view's associated objects
         objc_setAssociatedObject(self, &AssociatedKeys.viewTracker, tracker, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)

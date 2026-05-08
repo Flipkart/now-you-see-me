@@ -21,6 +21,11 @@ public class ViewTracker: NSObject {
      View on which the tracker is attached
      */
     public internal(set) weak var view: UIView?
+    
+    /**
+     Flag to understand if new arch is enabeld
+     */
+    public var isNewArchEnabled: Bool = false
 
     /**
      Layer of the view to which tracker is attached.
