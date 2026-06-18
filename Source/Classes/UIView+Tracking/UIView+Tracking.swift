@@ -42,7 +42,9 @@ extension UIView {
             // update conditions and listener if tracker already present
             viewTracker.setConditions(conditions)
             viewTracker.setListener(listener)
-            viewTracker.isNewArchEnabled = isNewArchEnabled
+            if (isNewArchEnabled) {
+                viewTracker.resetFrame()
+            }
             return
         }
 
@@ -51,15 +53,15 @@ extension UIView {
         if let scrollView: UIScrollView = self as? UIScrollView {
             // special handling for scrollviews
             #if DEBUG
-            tracker = DebugScrollTracker(scrollView, isNewArchEnabled)
+            tracker = DebugScrollTracker(scrollView)
             #else
-            tracker = ScrollTracker(scrollView, isNewArchEnabled)
+            tracker = ScrollTracker(scrollView)
             #endif
         } else {
             #if DEBUG
-            tracker = DebugViewTracker(self, isNewArchEnabled)
+            tracker = DebugViewTracker(self)
             #else
-            tracker = ViewTracker(self, isNewArchEnabled)
+            tracker = ViewTracker(self)
             #endif
         }
         tracker.setConditions(conditions)

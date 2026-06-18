@@ -24,8 +24,8 @@ class DebugScrollTracker: ScrollTracker {
      */
     private var overlayView: UIView?
 
-    override init(_ view: UIScrollView,_ isNewArchEnabled: Bool = false) {
-        super.init(view, isNewArchEnabled)
+    override init(_ view: UIScrollView) {
+        super.init(view)
 
         // add notification observer
         NotificationCenter.default.addObserver(self, selector: #selector(displayOverlay), name: DebugNotifications.displayOverlay, object: nil)

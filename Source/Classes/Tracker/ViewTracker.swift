@@ -21,11 +21,6 @@ public class ViewTracker: NSObject {
      View on which the tracker is attached
      */
     public internal(set) weak var view: UIView?
-    
-    /**
-     Flag to understand if new arch is enabeld
-     */
-    public var isNewArchEnabled: Bool = false
 
     /**
      Layer of the view to which tracker is attached.
@@ -91,10 +86,9 @@ public class ViewTracker: NSObject {
      - Parameters:
         - view: the view being tracked
     */
-    internal init(_ view: UIView,_ isNewArchEnabled: Bool = false) {
+    internal init(_ view: UIView) {
         self.view = view
         super.init()
-        self.isNewArchEnabled = isNewArchEnabled
         // add observers for app state
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)

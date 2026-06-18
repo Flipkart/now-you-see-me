@@ -45,11 +45,11 @@ internal class ScrollTracker: ViewTracker {
      - Parameters:
         - scrollView: the scrollView being tracked
      */
-    internal init(_ scrollView: UIScrollView, _ isNewArchEnabled: Bool = false) {
+    internal init(_ scrollView: UIScrollView) {
         self.scrollView = scrollView
         self.lastScrollOffset = scrollView.contentOffset
 
-        super.init(scrollView, isNewArchEnabled)
+        super.init(scrollView)
 
         // add observer on scrollView's contentOffset
         scrollView.addObserver(self, forKeyPath: "contentOffset", options: [.new], context: nil)
