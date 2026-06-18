@@ -89,6 +89,7 @@ public class ViewTracker: NSObject {
     internal init(_ view: UIView) {
         self.view = view
         super.init()
+
         // add observers for app state
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)

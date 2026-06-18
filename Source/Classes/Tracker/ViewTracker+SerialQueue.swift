@@ -112,6 +112,11 @@ extension ViewTracker {
             return
         }
 
+        if keyPath == "bounds", let oldValue: CGRect = change?[.oldKey] as? CGRect, let newValue: CGRect = change?[.newKey] as? CGRect, oldValue.size == newValue.size {
+            // return if bounds size has not changed
+            return
+        }
+
         // reset frame if there is a change in layer's position or bounds
         QueueManager.dispatchOnSerialQueue { [weak self] in
             self?.resetFrame()
