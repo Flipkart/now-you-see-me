@@ -31,8 +31,9 @@ extension UIView {
      - Parameters:
         - listener: The listener for change in viewability state of the view
         - conditions: Additional viewability conditions attached to the view
+        - resetFrameOnReuse: Pass `true` when new Arch is enabled to force a frame re-anchor on reuse.
      */
-    public func trackView(_ listener: ViewabilityListener? = nil, conditions: [ViewCondition] = []) {
+    public func trackView(_ listener: ViewabilityListener? = nil, conditions: [ViewCondition] = [], resetFrameOnReuse: Bool = false) {
         // do not track if not enabled
         guard NowYou.watching else {
             return
@@ -42,6 +43,14 @@ extension UIView {
             // update conditions and listener if tracker already present
             viewTracker.setConditions(conditions)
             viewTracker.setListener(listener)
+            // On Paper (Old Arch), layout updates trigger layer KVO (position/bounds)
+            // which calls resetFrame() automatically after the view has a stable frame.                                                                           
+            // On Fabric (New Arch), layout is batched and KVO may fire too early or not                                                                           
+            // at all during view reuse,                                                                               
+            // re-anchor visibility geometry if the frame is reused.
+            if (resetFrameOnReuse) {
+                viewTracker.resetFrame()
+            }
             return
         }
 
