@@ -32,6 +32,10 @@ public class DebugViewTracker: ViewTracker {
         NotificationCenter.default.addObserver(self, selector: #selector(hideOverlay), name: DebugNotifications.hideOverlay, object: nil)
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     /**
      Displays overlay view
      */
