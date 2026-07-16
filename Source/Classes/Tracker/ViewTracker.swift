@@ -91,8 +91,12 @@ public class ViewTracker: NSObject {
         super.init()
 
         // add observers for app state
-        NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        if NowYou.useSharedAppLifecycleNotifier {
+            AppLifecycleNotifier.shared.register(self)
+        } else {
+            NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        }
 
         // add self in tracking heirarchy
         addNode()
@@ -106,6 +110,12 @@ public class ViewTracker: NSObject {
     }
 
     deinit {
+        if NowYou.useSharedAppLifecycleNotifier {
+            AppLifecycleNotifier.shared.unregister(self)
+        } else {
+            NotificationCenter.default.removeObserver(self)
+        }
+
         // remove self from tracking heirarchy
         removeNode()
         // remove observers

@@ -65,4 +65,17 @@ import Foundation
      - **false** -> framework is **disabled**
     */
     internal private(set) static var watching: Bool = false
+
+    /**
+     When enabled, view trackers use a single shared app lifecycle observer instead of
+     registering per-instance `NSNotificationCenter` observers.
+     */
+    internal private(set) static var useSharedAppLifecycleNotifier: Bool = false
+
+    /**
+     Configures view tracker lifecycle handling. Call before `seeMe()` / `seeReact()`.
+     */
+    @objc public static func configure(viewTrackerLifecycleFixEnabled: Bool) {
+        useSharedAppLifecycleNotifier = viewTrackerLifecycleFixEnabled
+    }
 }
