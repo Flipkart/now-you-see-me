@@ -112,6 +112,8 @@ public class ViewTracker: NSObject {
     deinit {
         if NowYou.useSharedAppLifecycleNotifier {
             AppLifecycleNotifier.shared.unregister(self)
+        } else {
+            NotificationCenter.default.removeObserver(self)
         }
 
         // remove self from tracking heirarchy
